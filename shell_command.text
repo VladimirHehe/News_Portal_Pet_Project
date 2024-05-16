@@ -1,0 +1,83 @@
+1) user_1 = User.objects.create_user('YellowBanana')
+<User: YellowBanana>
+user_2 = User.objects.create_user('GreenAuthor')
+<User: GreenAuthor>
+
+
+2)author_1 = Author.objects.create(user = user_1)
+ author_2 = Author.objects.create(user = user_2)
+
+
+3)Category.objects.create(name='SP')
+<Category: Category object (1)>
+Category.objects.create(name='OT')
+<Category: Category object (2)>
+Category.objects.create(name='PO')
+<Category: Category object (3)>
+Category.objects.create(name='CU')
+<Category: Category object (4)>
+
+4)post_1 = Post.objects.create(author = author_1, choice = False, header = 'post number one', text = 'It is my firs post')
+Politics = Category.objects.get(name='PO')
+post_1.category.add(Politics)
+
+post_2 = Post.objects.create(author = author_1, choice = True, header = 'post number two', text = 'It is my not firs post')
+Culture = Category.objects.get(name = 'CU')
+Other = Category.objects.get(name = 'OT')
+post_2.category.add(Other, Culture)
+
+post_3 = Post.objects.create(author = author_2, choice = False, header = 'Вообще насрать на то, что тут будет записано, надеюсь, что это потом о
+жно будет изменить', text = 'Если серьёзно, то я хз где тут в джанго есть функция потипу ALTER или UPDATE, придётся писать через SQL :(')
+Sport = Category.objects.get(name = 'SP')
+post_3.category.add(Sport)
+
+
+5)
+comment_1 = Comment.objects.create(post = post_1, user = user_2, text = 'Ну такое...')
+comment_2 = Comment.objects.create(post = post_1, user = user_1, text = 'user_2 мудак')
+comment_3 = Comment.objects.create(post = post_2, user = user_1, text = 'Очень мило:3')
+comment_3 = Comment.objects.create(post = post_2, user = user_1, text = 'Очень мило:3')
+comment_4 = Comment.objects.create(post = post_3, user = user_2, text = 'Немного сложно, конечно, всё это')
+
+6)
+post_1.like_pos()
+post_1.like_pos()
+post_2.like_pos()
+post_3.like_pos()
+post_1.dislike_pos()
+
+comment_1.like_comm()
+comment_2.like_comm()
+comment_4.like_comm()
+comment_4.like_comm()
+comment_2.dislike_comm()
+
+7)
+author_1.update_rating()
+author_2.update_rating()
+
+8)best_author = Author.objects.order_by('-rating').first()
+print(f"Username: {best_author.user.username}, Rating: {best_author.rating}")
+9)best_post = Post.objects.order_by('-rating').first()
+
+ print(f"BestPost: user:{best_post.author.user.username},date:{best_post.date_created},rating:{best_post.rating},header:{best_post.header},preview:{print(best_post.preview())}")
+ print(f"BestPost: user:{best_post.author.user.username}, date:{best_post.date_created}, rating:{best_post.rating}, header:{best_post.header},preview:{best_post.preview()}")
+BestPost:
+user:YellowBanana,
+date:2024-05-16 10:01:52.451197+00:00,
+rating:2,
+header:post number one,
+preview:It is my firs post...
+
+
+10)
+Comment.objects.filter(post = best_post)
+<QuerySet [<Comment: Comment object (1)>, <Comment: Comment object (2)>]>
+
+Comments_top_post = Comment.objects.filter(post = best_post)
+
+for comment in Comments_top_post:
+    print(f"Date: {comment.date_created}, User: {comment.user.username}, Rating: {comment.rating}, Text: {comment.text}")
+
+Date: 2024-05-16 10:23:58.061911+00:00, User: GreenAuthor, Rating: 1, Text: Ну такое...
+Date: 2024-05-16 10:25:29.065958+00:00, User: YellowBanana, Rating: 0, Text: user_2 мудак
