@@ -1,6 +1,6 @@
 <!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
 {% extends 'flatpages/default.html' %}
-
+{% load censor_filter %}
 <!-- Название у нас будет Product -->
 {% block title %}
 Post
@@ -8,5 +8,10 @@ Post
 
 <!-- В контенте на странице мы выводим сам товар, идентификатор которого был передан в url -->
 {% block content %}
-<h1>{{ post }}</h1>
+
+<h1>{{ post.header |check_bad_words }}</h1>
+<h4 style="text-align: left;"> Дата публикации: {{post.date_created|date:"d.m.Y"}}</h4>
+<hr>
+<h4> {{post.text | check_bad_words }}</h4>
+
 {% endblock content %}

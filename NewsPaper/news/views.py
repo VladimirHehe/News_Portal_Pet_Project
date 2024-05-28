@@ -23,4 +23,3 @@ class PostDetail(DetailView):
     template_name = 'Newspk.html'
     # Название объекта, в котором будет выбранный пользователем продукт
     context_object_name = 'post'
-

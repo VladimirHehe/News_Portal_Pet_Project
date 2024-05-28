@@ -8,5 +8,26 @@
 <!-- В контенте на странице мы выводим все товары -->
 {% block content %}
 <h1>Все новости</h1>
-    {{ posts }}
-{% endblock content %}
+<h4 style="text-align: left;">Всего новостей:{{posts|length}} </h4>
+<hr>
+{%if posts%}
+     <table>
+           <tr>
+               <td>Заголовок</td>
+               <td>Дата</td>
+               <td>Содержание</td>
+           </tr>
+    {%for post in posts %}
+          <tr>
+               <td>{{post.header}}</td>
+
+              <td>{{post.date_created|date:"d.m.Y"}}</td>
+
+              <td>{{post.text|truncatewords:20}}...</td>
+          </tr>
+         {%endfor%}
+{%else%}
+         <p>Новостей пока нет</p>
+
+         {%endif%}
+{%endblock content%}
