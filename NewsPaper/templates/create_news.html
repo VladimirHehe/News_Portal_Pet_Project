@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+    <h1>Создание новости</h1>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors|join:", " }}
+            </div>
+        {% endif %}
+        <input type="submit" value="Добавить">
+    </form>
+{% endblock %}

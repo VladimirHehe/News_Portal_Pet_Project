@@ -3,12 +3,17 @@
 {% load custom_tags %}
 
 {% block title %}
-    NEWS
+    NEWS_Search
 {% endblock title %}
 
 <!-- В контенте на странице мы выводим все товары -->
 {% block content %}
-<h1>Все новости</h1>
+<h1>Поиск новостей</h1>
+   <form action="" method="get">
+       {{filterset.form.as_p}}
+       <input type="submit" value="Найти" />
+   </form>
+
 <h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
 <hr>
 {%if posts%}
@@ -28,7 +33,7 @@
           </tr>
          {%endfor%}
 {%else%}
-         <p>Новостей пока нет</p>
+         <p>Новостей по вашим критериям нет.</p>
          {%endif%}
 
     {% if page_obj.has_previous %}

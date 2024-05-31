@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<h1>Удаление Статьи</h1>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Удаляем Статью "{{ object.header|truncatewords:10 }}"?</p>
+    <input type="submit" value="Удалить" />
+
+    <a href="{% url 'post_detail' post.pk %}"
+    "{{ post.title }}" class= "btn btn-default"> Нет
+    </a>
+
+</form>
+{% endblock content %}
