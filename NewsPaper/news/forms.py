@@ -1,9 +1,9 @@
 from django import forms
-
-
 from .models import Post
 from django.core.exceptions import ValidationError
 from .censor_by_froms import bad_words_list
+from allauth.account.forms import SignupForm
+from django.contrib.auth.models import Group
 
 
 class PostForm(forms.ModelForm):
@@ -28,3 +28,11 @@ class PostForm(forms.ModelForm):
             )
 
         return cleaned_data
+
+
+class CommonSignupForm(SignupForm):
+    def save(self, request):
+        user = super(CommonSignupForm, self).save(request)
+        basic_group = Group.objects.get(name='common')
+        basic_group.user_set.add(user)
+        return user

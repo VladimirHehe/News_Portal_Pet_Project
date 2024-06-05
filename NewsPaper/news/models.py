@@ -15,6 +15,9 @@ class Author(models.Model):
         self.rating = article_ratings_sum + comment_ratings_sum + article_comments_ratings_sum
         self.save()
 
+    def __str__(self):
+        return f'{self.user.username}'
+
 
 class Category(models.Model):
     Sport = 'SP'
@@ -40,6 +43,9 @@ class Category(models.Model):
                             unique=True,
                             choices=CATEGORY,
                             default=Other)
+
+    def __str__(self):
+        return dict(self.CATEGORY)[self.name]
 
 
 class Post(models.Model):
@@ -67,6 +73,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.id)])
+
 
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

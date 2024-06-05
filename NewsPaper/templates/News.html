@@ -10,6 +10,11 @@
 {% block content %}
 <h1>Все новости</h1>
 <h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
+
+{%if is_not_author%}
+<button> <a  style="text-align: right;" href="upgrade/"> Хочу стать автором!</a> </button>
+{%endif%}
+
 <hr>
 {%if posts%}
      <table>
@@ -47,4 +52,5 @@
        {% endif %}
    {% endif %}
 
- {%endblock content%}
+
+{%endblock content%}

@@ -26,11 +26,14 @@
                    <a class="nav-link" href="/News/">Все Новости
                    </a>
                </li>
-
-               </li>
                <li class="nav-item">
                    <a class="nav-link" href="/News/search/">Поиск Новостей</a>
                </li>
+               {%if not is_not_author%}
+               <li class="nav-item">
+                   <a class="nav-link" style="text-align:right;" href="/News/create/">Создать новость</a>
+               </li>
+               {% endif %}
            </ul>
        </div>
    </div>
@@ -39,8 +42,12 @@
         <div class="container">
 
             <div class="text-center mt-5">
-                <h1>{% block content %}
-                    {% endblock content %}
+                <h1>{% block body %}
+        {% block content %}
+        {% endblock content %}
+        {% endblock body %}
+        {% block extra_body %}
+        {% endblock extra_body %}
                 </h1>
             </div>
         </div>
