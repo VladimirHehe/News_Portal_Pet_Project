@@ -1,0 +1,5 @@
+{% extends 'flatpages/default.html' %}
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Subscribe to {{ category.name }}</button>
+</form>

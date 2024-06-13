@@ -25,7 +25,7 @@
            </tr>
       {% for post in posts|dictsort:"date_created" %}
           <tr>
-              <td>{{post.header|check_bad_words}}</td>
+              <td><a href="{% url 'post_detail' post.pk %}">{{post.header|check_bad_words}}</a></td>
 
               <td> {{post.date_created|date:"d.m.Y"}}</td>
 

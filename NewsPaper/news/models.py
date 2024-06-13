@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 from django.urls import reverse
 
 
@@ -43,9 +44,13 @@ class Category(models.Model):
                             unique=True,
                             choices=CATEGORY,
                             default=Other)
+    subscribers = models.ManyToManyField(User, related_name="subscribed_categories")
 
     def __str__(self):
         return dict(self.CATEGORY)[self.name]
+
+    def get_subscribers(self):
+        return self.subscribers.all()
 
 
 class Post(models.Model):
@@ -73,6 +78,9 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.id)])
+
+    def get_category(self):
+        return self.category.all().first()
 
 
 class PostCategory(models.Model):

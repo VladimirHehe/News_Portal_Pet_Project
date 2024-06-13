@@ -1,7 +1,7 @@
 from django.forms import DateInput
 from django_filters import FilterSet, CharFilter, ModelChoiceFilter, DateFilter
 
-from .models import Post, Author, User
+from .models import Post, Author, User, Category
 
 
 class PostFilter(FilterSet):
@@ -19,7 +19,11 @@ class PostFilter(FilterSet):
                               label="Показать после даты:",
                               widget=DateInput(attrs={'type': 'date'})
                               )
+    category = ModelChoiceFilter(queryset=Category.objects.all(),
+                                 label="Категория",
+                                 empty_label="Все категории"
+                                 )
 
     class Meta:
         model = Post
-        fields = ['author', 'text', 'date_created', ]
+        fields = ['author', 'text', 'date_created', 'category', ]

@@ -1,15 +1,21 @@
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.views import View
 from django.contrib.auth.decorators import login_required
-from .models import Post
+from .models import Post, Category, PostCategory, Author
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .filters import PostFilter
 from .forms import PostForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.core.mail import send_mail
 
 
 def post_del(request, pk):
@@ -134,4 +140,15 @@ def upgrade_me(request):
     authors_group = Group.objects.get(name='authors')
     if not request.user.groups.filter(name='authors').exists():
         authors_group.user_set.add(user)
+        Author.objects.create(user=user)
+    return redirect('post_list')
+
+
+@login_required
+def subscribe_to_category(request, category_id):
+    category = Category.objects.get(id=category_id)
+    if request.method == 'POST':
+        if not request.user in category.subscribers.all():
+            category.subscribers.add(request.user)
+            return redirect('post_list')
     return redirect('post_list')

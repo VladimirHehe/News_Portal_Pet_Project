@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, Category
 from django.core.exceptions import ValidationError
 from .censor_by_froms import bad_words_list
 from allauth.account.forms import SignupForm
@@ -36,3 +36,7 @@ class CommonSignupForm(SignupForm):
         basic_group = Group.objects.get(name='common')
         basic_group.user_set.add(user)
         return user
+
+
+# class SubscribeForm(forms.Form):
+#     category = forms.ModelChoiceField(queryset=Category.objects.all())
