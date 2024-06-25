@@ -4,6 +4,8 @@ from django.core.exceptions import ValidationError
 from .censor_by_froms import bad_words_list
 from allauth.account.forms import SignupForm
 from django.contrib.auth.models import Group
+from django.core.mail import send_mail, EmailMultiAlternatives
+import logging
 
 
 class PostForm(forms.ModelForm):
@@ -38,5 +40,3 @@ class CommonSignupForm(SignupForm):
         return user
 
 
-# class SubscribeForm(forms.Form):
-#     category = forms.ModelChoiceField(queryset=Category.objects.all())

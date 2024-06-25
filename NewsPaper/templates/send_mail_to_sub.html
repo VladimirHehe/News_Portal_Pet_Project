@@ -1,0 +1,15 @@
+{% load censor_filter %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New post</title>
+</head>
+<body>
+    <h2> Здравствуй, {{ user.username }}. Появилась новая статья в твоём любимом разделе!</h2>
+    <p> Краткое ознакомление: {{ post.text|truncatewords:20 | check_bad_words }} </p>
+    <a href="{{ post_url }}">Перейти к статье</a>
+</body>
+</html>

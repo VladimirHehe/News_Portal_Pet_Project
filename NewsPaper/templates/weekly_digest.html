@@ -1,0 +1,12 @@
+<h1>Новые посты в твоей категории {{ category }} !</h1>
+
+<p>Здесь все новые статьи и новости за прошедшую неделю:</p>
+
+<ul>
+    {% for post in new_posts %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
+<p>Всего хорошего,</p>
+<p>Твой News Portal</p>

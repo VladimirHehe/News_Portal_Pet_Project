@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-from NewsPaper.config import pass_to_email
+from .config import pass_to_email
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SERVER_NAME = 'localhost'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'news',
+    'news.apps.NewsConfig',
     'accounts',
     'django.contrib.sites',
     'django.contrib.flatpages',
@@ -47,10 +50,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.yandex',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
+    'django_apscheduler',
+    'NewsPaper'
 
 ]
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 
-DEFAULT_FROM_EMAIL = 'sobetskyvladimir@yandex.ru'
 SITE_ID = 1
 
 MIDDLEWARE = [
@@ -163,8 +169,15 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'sobetskyvladimir'
-EMAIL_HOST_PASSWORD = pass_to_email
 EMAIL_USE_SSL = True
+
+EMAIL_HOST_USER = 'sobetskyvladimir@yandex.ru'
+EMAIL_HOST_PASSWORD = pass_to_email
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER

@@ -1,0 +1,10 @@
+Новые посты в твоей категории {{ category }} !
+
+Здесь все новые статьи и новости за прошедшую неделю:
+
+{% for post in new_posts %}
+* {{ post.title }} ({{ post.get_absolute_url }})
+{% endfor %}
+
+Всего хорошего,
+Твой News Portal

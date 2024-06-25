@@ -7,10 +7,11 @@ Post
 {% endblock title %}
 
 {% block content %}
+
 {{post.header| check_bad_words}}
 <h5 style="text-align: left;"> Категории:
     {% for category in post.category.all %}
-        {{ category.name }}{% if not forloop.last %}, {% endif %}
+        {{ category }}{% if not forloop.last %}, {% endif %}
     {% empty %}
         Нет категорий
     {% endfor %}
@@ -18,14 +19,22 @@ Post
 
 <h5 style="text-align: left;"> Дата публикации: {{post.date_created|date:"d.m.Y"}}</h5>
 
-<!--{% if user not in category.subscribers %}-->
-{% for category in post.category.all %}
-    <button> <a href="{% url 'subscribe_to_category' category.id %}">Subscribe to {{ category.name }} category </a> </button>
-{% empty %}
-    No categories to subscribe to
-{% endfor %}
-<!--{% endif %}-->
+{% if user.is_authenticated %}
+    {% for category in categories %}
+        {% if not category.is_subscribed %}
+            <div style="text-align: left;">
+                <button><a href="{% url 'subscribe_to_category' category.category.id %}">Подпишитесь на категорию "{{ category.category }}"</a></button>
+
+            </div>
+        {% else %}
+            <span style="font-size: 0.8em; color: #666; display: block; float: left;">Вы уже подписаны на категорию: "{{ category.category }}"</span>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <span style="font-size: 0.8em; color: #666; display: block; float: left;">Чтобы подписаться на категорию, пожалуйста, авторизуйтесь!</span>
+{% endif %}
 
 <hr style="clear: both;">
 <h4> {{post.text | check_bad_words }}</h4>
+
 {% endblock content %}

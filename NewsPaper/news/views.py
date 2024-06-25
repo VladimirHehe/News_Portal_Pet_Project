@@ -2,7 +2,7 @@ from django.views.generic import (ListView, DetailView, CreateView, UpdateView, 
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views import View
 from django.contrib.auth.decorators import login_required
-from .models import Post, Category, PostCategory, Author
+from .models import Post, Category, PostCategory, Author, Subscription
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from .filters import PostFilter
@@ -11,11 +11,6 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import render_to_string
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.core.mail import send_mail
 
 
 def post_del(request, pk):
@@ -24,15 +19,9 @@ def post_del(request, pk):
 
 
 class PostList(ListView):
-    # Указываем модель, объекты которой мы будем выводить
     model = Post
-    # Поле, которое будет использоваться для сортировки объектов
     ordering = 'author'
-    # Указываем имя шаблона, в котором будут все инструкции о том,
-    # как именно пользователю должны быть показаны наши объекты
     template_name = 'News.html'
-    # Это имя списка, в котором будут лежать все объекты.
-    # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
     context_object_name = 'posts'
     paginate_by = 10
 
@@ -43,16 +32,19 @@ class PostList(ListView):
 
 
 class PostDetail(DetailView):
-    # Модель всё та же, но мы хотим получать информацию по отдельному товару
     model = Post
-    # Используем другой шаблон — product.html
     template_name = 'Newspk.html'
-    # Название объекта, в котором будет выбранный пользователем продукт
     context_object_name = 'post'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['is_not_author'] = not self.request.user.groups.filter(name='authors').exists()
+        categories = []
+        for category in self.object.category.all():
+            is_subscribed = self.request.user.subscription_set.filter(
+                category=category).exists() if self.request.user.is_authenticated else False
+            categories.append({'category': category, 'is_subscribed': is_subscribed})
+        context['categories'] = categories
         return context
 
 
@@ -64,15 +56,8 @@ class PostSearch(ListView):
     paginate_by = 4
 
     def get_queryset(self):
-        # Получаем обычный запрос
         queryset = super().get_queryset()
-        # Используем наш класс фильтрации.
-        # self.request.GET содержит объект QueryDict, который мы рассматривали
-        # в этом юните ранее.
-        # Сохраняем нашу фильтрацию в объекте класса,
-        # чтобы потом добавить в контекст и использовать в шаблоне.
         self.filterset = PostFilter(self.request.GET, queryset)
-        # Возвращаем из функции отфильтрованный список товаров
         return self.filterset.qs
 
     def get_context_data(self, **kwargs):
@@ -144,11 +129,11 @@ def upgrade_me(request):
     return redirect('post_list')
 
 
-@login_required
 def subscribe_to_category(request, category_id):
     category = Category.objects.get(id=category_id)
-    if request.method == 'POST':
-        if not request.user in category.subscribers.all():
-            category.subscribers.add(request.user)
-            return redirect('post_list')
-    return redirect('post_list')
+    if request.method == 'GET':
+        if not Subscription.objects.filter(user=request.user, category=category).exists():
+            Subscription.objects.create(user=request.user, category=category)
+            current_url = request.META.get('HTTP_REFERER')
+            return redirect(current_url)
+    return redirect(current_url)

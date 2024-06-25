@@ -4,22 +4,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
-class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    rating = models.IntegerField(default=0)
-
-    def update_rating(self):
-        article_ratings_sum = sum(post.rating * 3 for post in self.post_set.all())
-        comment_ratings_sum = sum(comment.rating for comment in self.user.comment_set.all())
-        article_comments_ratings_sum = \
-            sum(comment.rating for post in self.post_set.all() for comment in post.comment_set.all())
-        self.rating = article_ratings_sum + comment_ratings_sum + article_comments_ratings_sum
-        self.save()
-
-    def __str__(self):
-        return f'{self.user.username}'
-
-
 class Category(models.Model):
     Sport = 'SP'
     Politics = 'PO'
@@ -44,7 +28,6 @@ class Category(models.Model):
                             unique=True,
                             choices=CATEGORY,
                             default=Other)
-    subscribers = models.ManyToManyField(User, related_name="subscribed_categories")
 
     def __str__(self):
         return dict(self.CATEGORY)[self.name]
@@ -53,8 +36,13 @@ class Category(models.Model):
         return self.subscribers.all()
 
 
+class PostCategory(models.Model):
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+
 class Post(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey('Author', on_delete=models.CASCADE)
     choice = models.BooleanField(default=False)  # False = Статья True = Новость
     date_created = models.DateTimeField(auto_now_add=True)
     category = models.ManyToManyField(Category, through='PostCategory')
@@ -83,9 +71,20 @@ class Post(models.Model):
         return self.category.all().first()
 
 
-class PostCategory(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+class Author(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    rating = models.IntegerField(default=0)
+
+    def update_rating(self):
+        article_ratings_sum = sum(post.rating * 3 for post in self.post_set.all())
+        comment_ratings_sum = sum(comment.rating for comment in self.user.comment_set.all())
+        article_comments_ratings_sum = \
+            sum(comment.rating for post in self.post_set.all() for comment in post.comment_set.all())
+        self.rating = article_ratings_sum + comment_ratings_sum + article_comments_ratings_sum
+        self.save()
+
+    def __str__(self):
+        return f'{self.user.username}'
 
 
 class Comment(models.Model):
@@ -102,3 +101,11 @@ class Comment(models.Model):
     def dislike_comm(self):
         self.rating -= 1
         self.save()
+
+
+class Subscription(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.username} subscribed to {self.category.name}"
