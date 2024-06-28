@@ -47,12 +47,10 @@ class Command(BaseCommand):
         scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
         scheduler.add_jobstore(DjangoJobStore(), "default")
 
-        # добавляем работу нашему задачнику
         scheduler.add_job(
             send_mail_week,
             trigger=CronTrigger(week="1"),
-            # То же, что и интервал, но задача тригера таким образом более понятна django
-            id="send_mail_week",  # уникальный айди
+            id="send_mail_week",
             max_instances=1,
             replace_existing=True,
         )
