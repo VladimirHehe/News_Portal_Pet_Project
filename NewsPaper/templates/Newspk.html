@@ -1,7 +1,6 @@
 
 {% extends 'flatpages/default.html' %}
 {% load censor_filter %}
-
 {% block title %}
 Post
 {% endblock title %}
@@ -9,6 +8,8 @@ Post
 {% block content %}
 
 {{post.header| check_bad_words}}
+
+
 <h5 style="text-align: left;"> Категории:
     {% for category in post.category.all %}
         {{ category }}{% if not forloop.last %}, {% endif %}
@@ -36,5 +37,4 @@ Post
 
 <hr style="clear: both;">
 <h4> {{post.text | check_bad_words }}</h4>
-
 {% endblock content %}

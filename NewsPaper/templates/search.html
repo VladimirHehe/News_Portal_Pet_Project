@@ -1,7 +1,7 @@
 {% extends 'flatpages/default.html' %}
 {% load censor_filter %}
 {% load custom_tags %}
-
+{% load cache %}
 {% block title %}
     NEWS_Search
 {% endblock title %}
@@ -13,29 +13,29 @@
        {{filterset.form.as_p}}
        <input type="submit" value="Найти" />
    </form>
+{% cache 60 search_news %}
+    <h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
+    <hr>
+    {%if posts%}
+         <table>
+               <tr>
+                   <td>Заголовок </td>
+                   <td>Дата </td>
+                   <td>Содержание </td>
+               </tr>
+          {% for post in posts|dictsort:"date_created" %}
+              <tr>
+                 <td><a href="{% url 'post_detail' post.pk %}">{{post.header|check_bad_words}}</a></td>
 
-<h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
-<hr>
-{%if posts%}
-     <table>
-           <tr>
-               <td>Заголовок </td>
-               <td>Дата </td>
-               <td>Содержание </td>
-           </tr>
-      {% for post in posts|dictsort:"date_created" %}
-          <tr>
-             <td><a href="{% url 'post_detail' post.pk %}">{{post.header|check_bad_words}}</a></td>
+                  <td> {{post.date_created|date:"d.m.Y"}}</td>
 
-              <td> {{post.date_created|date:"d.m.Y"}}</td>
-
-              <td>{{post.text|truncatewords:20 | check_bad_words}}</td>
-          </tr>
-         {%endfor%}
-{%else%}
-         <p>Новостей по вашим критериям нет.</p>
-         {%endif%}
-
+                  <td>{{post.text|truncatewords:20 | check_bad_words}}</td>
+              </tr>
+             {%endfor%}
+    {%else%}
+             <p>Новостей по вашим критериям нет.</p>
+             {%endif%}
+{%endcache%}
     {% if page_obj.has_previous %}
        <a href="?{% url_replace page=1 %}">1</a>
        {% if page_obj.previous_page_number != 1 %}

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.core.cache import cache
 from django.urls import reverse
 
 
@@ -69,6 +69,10 @@ class Post(models.Model):
 
     def get_category(self):
         return self.category.all().first()
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        cache.delete(f'post-{self.pk}')
 
 
 class Author(models.Model):
