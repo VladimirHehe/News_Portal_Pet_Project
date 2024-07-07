@@ -43,7 +43,11 @@ class PostCategory(models.Model):
 
 class Post(models.Model):
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    choice = models.BooleanField(default=False)  # False = Статья True = Новость
+    choice_type = [
+        (False, 'Статья'),
+        (True, 'Новость'),
+    ]
+    choice = models.BooleanField(default=False, choices=choice_type)
     date_created = models.DateTimeField(auto_now_add=True)
     category = models.ManyToManyField(Category, through='PostCategory')
     header = models.TextField(max_length=120)
@@ -73,6 +77,9 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         cache.delete(f'post-{self.pk}')
+
+    def view_choice_type(self):
+        return dict(self.choice_type)[self.choice]
 
 
 class Author(models.Model):

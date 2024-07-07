@@ -1,8 +1,9 @@
 from django.urls import path
 # Импортируем созданное нами представление
 from .views import (PostList, PostDetail, PostSearch, NewsCreate,
-                    NewsUpdate, NewsDelete, ArticleCreate, ArticleEdit, ArticleDelete, upgrade_me, subscribe_to_category)
+                    NewsUpdate, NewsDelete, ArticleCreate, ArticleEdit, ArticleDelete, upgrade_me, subscribe_to_category, comment_form_view )
 from django.views.decorators.cache import cache_page
+from. import views
 urlpatterns = [
     # path — означает путь.
     # В данном случае путь ко всем товарам у нас останется пустым,
@@ -23,4 +24,6 @@ urlpatterns = [
     path('<int:pk>/article/delete/', ArticleDelete.as_view(), name='DeleteArticle'),
     path('upgrade/', upgrade_me, name='upgrade'),
     path('categories/<int:category_id>/subscribe/', subscribe_to_category, name='subscribe_to_category'),
+    path('<int:pk>/comment/', views.comment_form_view, name='comment_form'),
+
 ]

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Category
+from .models import Post, Category, Comment
 from django.core.exceptions import ValidationError
 from .censor_by_froms import bad_words_list
 from allauth.account.forms import SignupForm

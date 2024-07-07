@@ -2,8 +2,8 @@ from django.views.generic import (ListView, DetailView, CreateView, UpdateView, 
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views import View
 from django.contrib.auth.decorators import login_required
-from .models import Post, Category, PostCategory, Author, Subscription
-from django.shortcuts import render
+from .models import Post, Category, Author, Subscription, Comment
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from .filters import PostFilter
 from .forms import PostForm
@@ -147,3 +147,14 @@ def subscribe_to_category(request, category_id):
             current_url = request.META.get('HTTP_REFERER')
             return redirect(current_url)
     return redirect(current_url)
+
+
+@login_required
+def comment_form_view(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        comment_text = request.POST.get('comment')
+        new_comment = Comment(text=comment_text, post=post, user=request.user)
+        new_comment.save()
+        return redirect('post_detail', pk=pk)
+    return render(request, 'comment_form.html', {'post': post})

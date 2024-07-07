@@ -25,7 +25,6 @@ Post
         {% if not category.is_subscribed %}
             <div style="text-align: left;">
                 <button><a href="{% url 'subscribe_to_category' category.category.id %}">Подпишитесь на категорию "{{ category.category }}"</a></button>
-
             </div>
         {% else %}
             <span style="font-size: 0.8em; color: #666; display: block; float: left;">Вы уже подписаны на категорию: "{{ category.category }}"</span>
@@ -37,4 +36,28 @@ Post
 
 <hr style="clear: both;">
 <h4> {{post.text | check_bad_words }}</h4>
+
+<hr>
+
+<h3 style="margin-bottom: 10px;">Все комментарии</h3>
+<ul style="list-style: none; padding: 0; margin: 0;">
+    {% for comment in post.comment_set.all %}
+        <li style="margin-bottom: 10px;">
+            {{ comment.text|check_bad_words }}
+            (likes: {{ comment.rating }})
+        </li>
+    {% empty %}
+
+        <li style="color: #999;">Эту новость ещё никто не прокомментировал</li>
+    {% endfor %}
+
+</ul>
+<form method="post" action="{% url 'comment_form' post.id %}">
+    {% csrf_token %}
+    <textarea name="comment" cols="40" rows="5" class="form-control"></textarea>
+    <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fas fa-comment"></i> Добавить
+    </button>
+</form>
+
 {% endblock content %}
