@@ -5,15 +5,7 @@ from .views import (PostList, PostDetail, PostSearch, NewsCreate,
 from django.views.decorators.cache import cache_page
 from. import views
 urlpatterns = [
-    # path — означает путь.
-    # В данном случае путь ко всем товарам у нас останется пустым,
-    # чуть позже станет ясно почему.
-    # Т.к. наше объявленное представление является классом,
-    # а Django ожидает функцию, нам надо представить этот класс в виде view.
-    # Для этого вызываем метод as_view.
     path('', PostList.as_view(), name='post_list'),
-    # pk — это первичный ключ товара, который будет выводиться у нас в шаблон
-    # int — указывает на то, что принимаются только целочисленные значения
     path('<int:pk>', PostDetail.as_view(), name='post_detail', ),
     path('search/', PostSearch.as_view(), name='search_post'),
     path('create/', NewsCreate.as_view(), name='CreateNews'),
@@ -25,5 +17,11 @@ urlpatterns = [
     path('upgrade/', upgrade_me, name='upgrade'),
     path('categories/<int:category_id>/subscribe/', subscribe_to_category, name='subscribe_to_category'),
     path('<int:pk>/comment/', views.comment_form_view, name='comment_form'),
+    path('<int:pk>/like_post/', views.like_post, name='like_post'),
+    path('<int:pk>/dislike_post', views.dislike_post, name='dislike_post'),
+    path('<int:pk>/like_comment', views.like_comment, name='like_comment'),
+    path('<int:pk>/dislike_comment', views.dislike_comment, name='dislike_comment'),
+
+
 
 ]

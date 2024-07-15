@@ -6,14 +6,14 @@
     NEWS_Search
 {% endblock title %}
 
-<!-- В контенте на странице мы выводим все товары -->
+
 {% block content %}
 <h1>Поиск новостей</h1>
    <form action="" method="get">
        {{filterset.form.as_p}}
        <input type="submit" value="Найти" />
    </form>
-{% cache 60 search_news %}
+
     <h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
     <hr>
     {%if posts%}
@@ -24,20 +24,22 @@
                    <td>Содержание </td>
                </tr>
           {% for post in posts|dictsort:"date_created" %}
-              <tr>
+              <tr style="margin-bottom: 10px;">
                  <td><a href="{% url 'post_detail' post.pk %}">{{post.header|check_bad_words}}</a></td>
 
                   <td> {{post.date_created|date:"d.m.Y"}}</td>
 
                   <td>{{post.text|truncatewords:20 | check_bad_words}}</td>
               </tr>
+              <tr><td colspan="3"><hr></td></tr>
              {%endfor%}
     {%else%}
              <p>Новостей по вашим критериям нет.</p>
              {%endif%}
-{%endcache%}
+
+
     {% if page_obj.has_previous %}
-       <a href="?{% url_replace page=1 %}">1</a>
+         <a href="?{% url_replace page=1 %}">1</a>
        {% if page_obj.previous_page_number != 1 %}
            <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
        {% endif %}
@@ -46,7 +48,7 @@
    {{ page_obj.number }}
 
    {% if page_obj.has_next %}
-       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+            <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
        {% if paginator.num_pages != page_obj.next_page_number %}
            <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
        {% endif %}

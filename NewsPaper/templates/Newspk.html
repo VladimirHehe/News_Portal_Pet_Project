@@ -1,4 +1,3 @@
-
 {% extends 'flatpages/default.html' %}
 {% load censor_filter %}
 {% block title %}
@@ -19,7 +18,6 @@ Post
 </h5>
 
 <h5 style="text-align: left;"> Дата публикации: {{post.date_created|date:"d.m.Y"}}</h5>
-
 {% if user.is_authenticated %}
     {% for category in categories %}
         {% if not category.is_subscribed %}
@@ -34,17 +32,43 @@ Post
     <span style="font-size: 0.8em; color: #666; display: block; float: left;">Чтобы подписаться на категорию, пожалуйста, авторизуйтесь!</span>
 {% endif %}
 
+
+<div class="rating-container float-right">
+    <h5 class="rating">{{ post.rating }} Рейтинг новости</h5>
+    <div class="buttons">
+        <form action="{% url 'like_post' post.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-like">Like</button>
+        </form>
+        <form action="{% url 'dislike_post' post.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-dislike">Dislike</button>
+        </form>
+    </div>
+</div>
+
+
 <hr style="clear: both;">
 <h4> {{post.text | check_bad_words }}</h4>
 
 <hr>
 
-<h3 style="margin-bottom: 10px;">Все комментарии</h3>
+<h3 style="margin-bottom: 10px;">Все комментарии:</h3>
 <ul style="list-style: none; padding: 0; margin: 0;">
     {% for comment in post.comment_set.all %}
         <li style="margin-bottom: 10px;">
+            {{comment.user.username}}:
             {{ comment.text|check_bad_words }}
-            (likes: {{ comment.rating }})
+            (likes: {{ comment.rating }}).
+            date: {{ comment.date_created|date:"d.m.Y"}}
+            <form action="{% url 'like_comment' comment.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Like</button>
+            </form>
+            <form action="{% url 'dislike_comment' comment.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Dislike</button>
+            </form>
         </li>
     {% empty %}
 

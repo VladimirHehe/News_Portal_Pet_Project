@@ -56,11 +56,11 @@ class Post(models.Model):
 
     def like_pos(self):
         self.rating += 1
-        self.save()
+        self.save(update_fields=['rating'])
 
     def dislike_pos(self):
         self.rating -= 1
-        self.save()
+        self.save(update_fields=['rating'])
 
     def preview(self):
         return f"{self.text[:124]}..."
@@ -112,6 +112,9 @@ class Comment(models.Model):
     def dislike_comm(self):
         self.rating -= 1
         self.save()
+
+    def __str__(self):
+        return self.text
 
 
 class Subscription(models.Model):

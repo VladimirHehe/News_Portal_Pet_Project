@@ -10829,3 +10829,77 @@ textarea.form-control-lg {
     display: table;
     clear: both;
 }
+
+.float-right {
+    float: right;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-like, .btn-dislike {
+    background-color: #4CAF50; /* green */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-dislike {
+    background-color: #FF9800; /* orange */
+}
+
+.rating {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+}
+
+<style>
+   .like-btn,.dislike-btn {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+   .like-btn.active,.dislike-btn.active {
+        color: #337ab7; /* blue color on active state */
+    }
+
+   .like-btn.inactive,.dislike-btn.inactive {
+        color: #ccc; /* gray color on inactive state */
+    }
+</style>
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .container {
+    padding: 20px;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+
+.liked {
+    color: #0f0; /* green */
+}
+
+.disliked {
+    color: #f00; /* red */
+}

@@ -1,3 +1,4 @@
+from django.views.decorators.http import require_http_methods
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views import View
@@ -12,6 +13,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.cache import cache
+from django.http import JsonResponse
 
 
 def post_del(request, pk):
@@ -86,6 +88,9 @@ class NewsCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     def form_valid(self, form):
         post = form.save(commit=False)
         post.choice = True
+        author = Author.objects.get(user=self.request.user)
+        post.author = author
+        post.save()
         return super().form_valid(form)
 
 
@@ -158,3 +163,41 @@ def comment_form_view(request, pk):
         new_comment.save()
         return redirect('post_detail', pk=pk)
     return render(request, 'comment_form.html', {'post': post})
+
+
+def like_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.rating += 1
+        post.save()
+        return redirect('post_detail', pk=pk)
+    return redirect('post_detail', pk=pk)
+
+
+def dislike_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.rating -= 1
+        post.save()
+        return redirect('post_detail', pk=pk)
+    return redirect('post_detail', pk=pk)
+
+
+def like_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    if request.method == 'POST':
+        comment.rating += 1
+        comment.save()
+        current_url = request.META.get('HTTP_REFERER')
+        return redirect(current_url)
+    return redirect(current_url)
+
+
+def dislike_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    if request.method == 'POST':
+        comment.rating -= 1
+        comment.save()
+        current_url = request.META.get('HTTP_REFERER')
+        return redirect(current_url)
+    return redirect(current_url)

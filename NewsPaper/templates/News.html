@@ -3,11 +3,11 @@
 {% load custom_tags %}
 
 {% block title %}
-    NEWS
+    NewsPortal
 {% endblock title %}
 
-<!-- В контенте на странице мы выводим все товары -->
 {% block content %}
+
 <h1>Все новости</h1>
 <h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
 
@@ -31,10 +31,11 @@
 
               <td>{{post.text|truncatewords:20 | check_bad_words}}</td>
           </tr>
+          <tr><td colspan="3"><hr></td></tr>
          {%endfor%}
 {%else%}
          <p>Новостей пока нет</p>
-         {%endif%}
+{%endif%}
 
     {% if page_obj.has_previous %}
        <a href="?{% url_replace page=1 %}">1</a>
@@ -53,4 +54,5 @@
    {% endif %}
 
 
-{%endblock content%}
+
+{% endblock content %}
