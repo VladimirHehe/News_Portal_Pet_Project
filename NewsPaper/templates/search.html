@@ -2,26 +2,27 @@
 {% load censor_filter %}
 {% load custom_tags %}
 {% load cache %}
+{% load i18n %}
 {% block title %}
     NEWS_Search
 {% endblock title %}
 
 
 {% block content %}
-<h1>Поиск новостей</h1>
+<h1>{%  trans 'Поиск новостей' %}</h1>
    <form action="" method="get">
        {{filterset.form.as_p}}
-       <input type="submit" value="Найти" />
+       <input type="submit" value="{% trans 'Найти' %}" />
    </form>
 
-    <h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
+    <h4 style="text-align: left;"> {% trans 'Новостей на странице' %}: {{posts|length}} </h4>
     <hr>
     {%if posts%}
          <table>
                <tr>
-                   <td>Заголовок </td>
-                   <td>Дата </td>
-                   <td>Содержание </td>
+                   <td>{% trans 'Заголовок' %} </td>
+                   <td>{% trans 'Дата' %} </td>
+                   <td>{% trans 'Содержание' %} </td>
                </tr>
           {% for post in posts|dictsort:"date_created" %}
               <tr style="margin-bottom: 10px;">
@@ -34,7 +35,7 @@
               <tr><td colspan="3"><hr></td></tr>
              {%endfor%}
     {%else%}
-             <p>Новостей по вашим критериям нет.</p>
+             <p>{% trans 'Новостей по вашим критериям нет.' %}</p>
              {%endif%}
 
 

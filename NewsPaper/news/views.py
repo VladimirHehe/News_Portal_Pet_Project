@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -13,7 +14,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.cache import cache
-from django.http import JsonResponse
+from django.utils.translation import gettext as _
 
 
 def post_del(request, pk):
@@ -201,3 +202,5 @@ def dislike_comment(request, pk):
         current_url = request.META.get('HTTP_REFERER')
         return redirect(current_url)
     return redirect(current_url)
+
+

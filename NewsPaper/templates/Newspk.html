@@ -1,5 +1,6 @@
 {% extends 'flatpages/default.html' %}
 {% load censor_filter %}
+{% load i18n %}
 {% block title %}
 Post
 {% endblock title %}
@@ -9,32 +10,32 @@ Post
 {{post.header| check_bad_words}}
 
 
-<h5 style="text-align: left;"> Категории:
+<h5 style="text-align: left;"> {% trans 'Категории' %}:
     {% for category in post.category.all %}
         {{ category }}{% if not forloop.last %}, {% endif %}
     {% empty %}
-        Нет категорий
+    {% trans 'Нет категорий' %}
     {% endfor %}
 </h5>
 
-<h5 style="text-align: left;"> Дата публикации: {{post.date_created|date:"d.m.Y"}}</h5>
+<h5 style="text-align: left;"> {% trans 'Дата публикации' %}: {{post.date_created|date:"d.m.Y"}}</h5>
 {% if user.is_authenticated %}
     {% for category in categories %}
         {% if not category.is_subscribed %}
             <div style="text-align: left;">
-                <button><a href="{% url 'subscribe_to_category' category.category.id %}">Подпишитесь на категорию "{{ category.category }}"</a></button>
+                <button><a href="{% url 'subscribe_to_category' category.category.id %}">{% trans 'Подпишитесь на категорию' %} "{{ category.category }}"</a></button>
             </div>
         {% else %}
-            <span style="font-size: 0.8em; color: #666; display: block; float: left;">Вы уже подписаны на категорию: "{{ category.category }}"</span>
+            <span style="font-size: 0.8em; color: #666; display: block; float: left;">{% trans 'Вы уже подписаны на категорию' %}: "{{ category.category }}"</span>
         {% endif %}
     {% endfor %}
 {% else %}
-    <span style="font-size: 0.8em; color: #666; display: block; float: left;">Чтобы подписаться на категорию, пожалуйста, авторизуйтесь!</span>
+    <span style="font-size: 0.8em; color: #666; display: block; float: left;">{% trans 'Чтобы подписаться на категорию, пожалуйста, авторизуйтесь!' %}</span>
 {% endif %}
 
 
 <div class="rating-container float-right">
-    <h5 class="rating">{{ post.rating }} Рейтинг новости</h5>
+    <h5 class="rating">{{ post.rating }} {% trans 'Рейтинг новости' %}</h5>
     <div class="buttons">
         <form action="{% url 'like_post' post.id %}" method="post">
             {% csrf_token %}
@@ -53,7 +54,7 @@ Post
 
 <hr>
 
-<h3 style="margin-bottom: 10px;">Все комментарии:</h3>
+<h3 style="margin-bottom: 10px;">{% trans 'Все комментарии' %}:</h3>
 <ul style="list-style: none; padding: 0; margin: 0;">
     {% for comment in post.comment_set.all %}
         <li style="margin-bottom: 10px;">
@@ -72,7 +73,7 @@ Post
         </li>
     {% empty %}
 
-        <li style="color: #999;">Эту новость ещё никто не прокомментировал</li>
+        <li style="color: #999;">{% trans 'Эту новость ещё никто не прокомментировал' %}</li>
     {% endfor %}
 
 </ul>
@@ -80,7 +81,7 @@ Post
     {% csrf_token %}
     <textarea name="comment" cols="40" rows="5" class="form-control"></textarea>
     <button type="submit" class="btn btn-primary btn-sm">
-        <i class="fas fa-comment"></i> Добавить
+        <i class="fas fa-comment"></i> {% trans 'Добавить' %}
     </button>
 </form>
 

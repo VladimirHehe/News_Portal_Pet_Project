@@ -1,27 +1,27 @@
 {% extends 'flatpages/default.html' %}
 {% load censor_filter %}
 {% load custom_tags %}
-
+{% load i18n %}
 {% block title %}
     NewsPortal
 {% endblock title %}
 
 {% block content %}
 
-<h1>Все новости</h1>
-<h4 style="text-align: left;"> Новостей на странице: {{posts|length}} </h4>
+<h1>{% trans 'Все новости' %}</h1>
+<h4 style="text-align: left;"> {% trans 'Новостей на странице' %}: {{posts|length}} </h4>
 
 {%if is_not_author%}
-<button> <a  style="text-align: right;" href="upgrade/"> Хочу стать автором!</a> </button>
+<button> <a  style="text-align: right;" href="upgrade/"> {% trans 'Хочу стать автором!' %}</a> </button>
 {%endif%}
 
 <hr>
 {%if posts%}
      <table>
            <tr>
-               <td>Заголовок </td>
-               <td>Дата </td>
-               <td>Содержание </td>
+               <td>{% trans 'Заголовок' %} </td>
+               <td>{% trans 'Дата' %} </td>
+               <td>{% trans 'Содержание' %} </td>
            </tr>
       {% for post in posts|dictsort:"date_created" %}
           <tr>
@@ -34,8 +34,9 @@
           <tr><td colspan="3"><hr></td></tr>
          {%endfor%}
 {%else%}
-         <p>Новостей пока нет</p>
+         <p>{% trans 'Новостей пока нет' %}</p>
 {%endif%}
+
 
     {% if page_obj.has_previous %}
        <a href="?{% url_replace page=1 %}">1</a>
@@ -52,7 +53,5 @@
            <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
        {% endif %}
    {% endif %}
-
-
 
 {% endblock content %}

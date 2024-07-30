@@ -9,7 +9,7 @@ import logging
 
 
 class PostForm(forms.ModelForm):
-    header = forms.CharField(label="Заголовок", max_length=120)
+    header = forms.CharField(label="Header", max_length=120)
 
     class Meta:
         model = Post

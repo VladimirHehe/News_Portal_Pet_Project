@@ -1,15 +1,16 @@
 {% extends 'flatpages/default.html' %}
+{% load i18n %}
 
 {% block content %}
-<h1>Удаление Статьи</h1>
+<h1>{% trans "Удаление Статьи" %}</h1>
 <hr>
 <form action="" method="post">
     {% csrf_token %}
-    <p>Удаляем Статью "{{ object.header|truncatewords:10 }}"?</p>
-    <input type="submit" value="Удалить" />
+    <p>{% trans 'Удаляем Статью' %} "{{ object.header|truncatewords:10 }}"?</p>
+    <input type="submit" value="{% trans 'Удалить' %}" />
 
     <a href="{% url 'post_detail' post.pk %}"
-    "{{ post.title }}" class= "btn btn-default"> Нет
+    "{{ post.title }}" class= "btn btn-default"> {% trans 'Нет' %}
     </a>
 
 </form>

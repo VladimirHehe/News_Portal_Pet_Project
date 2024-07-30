@@ -1,7 +1,8 @@
 {% extends 'flatpages/default.html' %}
+{% load i18n %}
 
 {% block content %}
-    <h1>Создание новости</h1>
+    <h1>{% trans 'Создание новости' %}</h1>
     <hr>
     <form action="" method="post">
         {% csrf_token %}
@@ -11,6 +12,6 @@
                 {{ form.errors|join:", " }}
             </div>
         {% endif %}
-        <input type="submit" value="Добавить">
+        <input type="submit" value="{% trans 'Добавить' %}">
     </form>
 {% endblock %}
