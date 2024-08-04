@@ -1,0 +1,74 @@
+[
+    {
+        "model": "news.category",
+        "pk": 1,
+        "fields": {
+            "name": "SP",
+            "title": "Sport",
+            "title_ru": "Спорт"
+        }
+    },
+    {
+        "model": "news.category",
+        "pk": 2,
+        "fields": {
+            "name": "OT",
+            "title": "Other",
+            "title_ru": "Другое"
+        }
+    },
+    {
+        "model": "news.category",
+        "pk": 3,
+        "fields": {
+            "name": "PO",
+            "title": "Politics",
+            "title_ru": "Политика"
+        }
+    },
+    {
+        "model": "news.category",
+        "pk": 4,
+        "fields": {
+            "name": "CU",
+            "title": "Culture",
+            "title_ru": "Культура"
+        }
+    },
+    {
+        "model": "news.category",
+        "pk": 5,
+        "fields": {
+            "name": "SC",
+            "title": "Science",
+            "title_ru": "Наука"
+        }
+    },
+    {
+        "model": "news.category",
+        "pk": 6,
+        "fields": {
+            "name": "CO",
+            "title": "Cooking",
+            "title_ru": "Кулинария"
+        }
+    },
+    {
+        "model": "news.category",
+        "pk": 7,
+        "fields": {
+            "name": "RE",
+            "title": "Religion",
+            "title_ru": "Религия"
+        }
+    },
+    {
+        "model": "news.category",
+        "pk": 8,
+        "fields": {
+            "name": "EC",
+            "title": "Economics",
+            "title_ru": "Экономика"
+        }
+    }
+]

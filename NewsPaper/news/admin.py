@@ -1,9 +1,15 @@
 from django.contrib import admin
 from .models import *
+from modeltranslation.admin import TranslationAdmin
 
 
 class PostAdmin(admin.ModelAdmin):
     search_fields = ['text']
+
+
+class CategoryAdmin(TranslationAdmin):
+    model = Category
+    fields = ('title',)
 
 
 admin.site.register(Author)

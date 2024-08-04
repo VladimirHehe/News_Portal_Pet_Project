@@ -199,3 +199,1631 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: comment_form.html
 2024-07-30 19:41:22,246 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/2/comment/ HTTP/1.1" 500 92458
+2024-07-31 08:56:21,008 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x0000025FEFA29700>) Internal Server Error: /admin/news/category/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 2124, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2024-07-31 08:56:21,032 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/ HTTP/1.1" 500 174402
+2024-07-31 09:31:10,012 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.IntegrityError'>, IntegrityError('UNIQUE constraint failed: news_category.name'), <traceback object at 0x000001736BBB6080>) Internal Server Error: /admin/news/category/8/change/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: news_category.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1948, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1804, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1855, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1259, in save_model
+    obj.save()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 1040, in _save_table
+    updated = self._do_update(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 1105, in _do_update
+    return filtered._update(values) > 0
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\modeltranslation\manager.py", line 396, in _update
+    return super()._update(values)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 1278, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1990, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: news_category.name
+2024-07-31 09:31:10,033 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "POST /admin/news/category/8/change/ HTTP/1.1" 500 213944
+2024-07-31 09:31:22,071 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.IntegrityError'>, IntegrityError('UNIQUE constraint failed: news_category.name'), <traceback object at 0x000001736B7BA200>) Internal Server Error: /admin/news/category/8/change/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: news_category.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1948, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1804, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1855, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1259, in save_model
+    obj.save()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 1040, in _save_table
+    updated = self._do_update(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\base.py", line 1105, in _do_update
+    return filtered._update(values) > 0
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\modeltranslation\manager.py", line 396, in _update
+    return super()._update(values)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 1278, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1990, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: news_category.name
+2024-07-31 09:31:22,089 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "POST /admin/news/category/8/change/ HTTP/1.1" 500 213766
+2024-07-31 11:36:03,776 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.core.exceptions.FieldError'>, FieldError('Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.'), <traceback object at 0x0000026377FE4A00>) Internal Server Error: /admin/news/category/8/change/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 837, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 652, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 332, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1948, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1804, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1839, in _changeform_view
+    ModelForm = self.get_form(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 839, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.
+2024-07-31 11:36:03,787 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/8/change/ HTTP/1.1" 500 148318
+2024-07-31 11:36:29,194 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.core.exceptions.FieldError'>, FieldError('Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.'), <traceback object at 0x00000175444F9A00>) Internal Server Error: /admin/news/category/8/change/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 837, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 652, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 332, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1948, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1804, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1839, in _changeform_view
+    ModelForm = self.get_form(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\modeltranslation\admin.py", line 383, in get_form
+    return super().get_form(request, obj, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 839, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.
+2024-07-31 11:36:29,212 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/8/change/ HTTP/1.1" 500 153434
+2024-07-31 11:36:30,018 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.core.exceptions.FieldError'>, FieldError('Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.'), <traceback object at 0x000001754454A700>) Internal Server Error: /admin/news/category/8/change/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 837, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 652, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 332, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1948, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1804, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1839, in _changeform_view
+    ModelForm = self.get_form(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\modeltranslation\admin.py", line 383, in get_form
+    return super().get_form(request, obj, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 839, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.
+2024-07-31 11:36:30,078 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/8/change/ HTTP/1.1" 500 153434
+2024-07-31 11:36:32,960 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.core.exceptions.FieldError'>, FieldError('Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.'), <traceback object at 0x000001754441A700>) Internal Server Error: /admin/news/category/8/change/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 837, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 652, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 332, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1948, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1804, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1839, in _changeform_view
+    ModelForm = self.get_form(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\modeltranslation\admin.py", line 383, in get_form
+    return super().get_form(request, obj, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 839, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.
+2024-07-31 11:36:33,005 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/8/change/ HTTP/1.1" 500 153297
+2024-07-31 11:36:37,255 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.core.exceptions.FieldError'>, FieldError('Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.'), <traceback object at 0x00000175447BD180>) Internal Server Error: /admin/news/category/8/change/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 837, in get_form
+    return modelform_factory(self.model, **defaults)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 652, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 332, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1948, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1804, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 1839, in _changeform_view
+    ModelForm = self.get_form(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\modeltranslation\admin.py", line 383, in get_form
+    return super().get_form(request, obj, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 839, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (parent) specified for Category. Check fields/fieldsets/exclude attributes of class CategoryAdmin.
+2024-07-31 11:36:37,281 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/8/change/ HTTP/1.1" 500 153434
+2024-07-31 11:45:52,049 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x000001BAF0483580>) Internal Server Error: /admin/news/category/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 2124, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2024-07-31 11:45:52,065 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/ HTTP/1.1" 500 174562
+2024-08-04 09:54:52,978 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Ёкономика'), <traceback object at 0x0000028FEF839C40>) Internal Server Error: /admin/news/category/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\options.py", line 681, in get_field
+    return self.fields_map[field_name]
+KeyError: 'action_checkbox'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 289, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 322, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\options.py", line 683, in get_field
+    raise FieldDoesNotExist(
+django.core.exceptions.FieldDoesNotExist: Category has no field named 'action_checkbox'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\library.py", line 258, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 345, in result_list
+    "results": list(results(cl)),
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 321, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 312, in __init__
+    super().__init__(*items)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 217, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 298, in lookup_field
+    value = attr(obj)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 999, in action_checkbox
+    "aria-label": format_html(_("Select this object for an action - {}"), obj),
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 135, in format_html
+    return mark_safe(format_string.format(*args_safe, **kwargs_safe))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 117, in conditional_escape
+    return escape(text)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\functional.py", line 231, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 50, in escape
+    return SafeString(html.escape(str(text)))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Ёкономика'
+2024-08-04 09:54:53,081 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/ HTTP/1.1" 500 466092
+2024-08-04 09:55:08,303 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Ёкономика'), <traceback object at 0x0000028FF0EDBA00>) Internal Server Error: /admin/news/category/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\options.py", line 681, in get_field
+    return self.fields_map[field_name]
+KeyError: 'action_checkbox'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 289, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 322, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\options.py", line 683, in get_field
+    raise FieldDoesNotExist(
+django.core.exceptions.FieldDoesNotExist: Category has no field named 'action_checkbox'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\library.py", line 258, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 345, in result_list
+    "results": list(results(cl)),
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 321, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 312, in __init__
+    super().__init__(*items)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 217, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 298, in lookup_field
+    value = attr(obj)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 999, in action_checkbox
+    "aria-label": format_html(_("Select this object for an action - {}"), obj),
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 135, in format_html
+    return mark_safe(format_string.format(*args_safe, **kwargs_safe))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 117, in conditional_escape
+    return escape(text)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\functional.py", line 231, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 50, in escape
+    return SafeString(html.escape(str(text)))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Ёкономика'
+2024-08-04 09:55:08,349 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/ HTTP/1.1" 500 466229
+2024-08-04 09:55:12,613 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Ёкономика'), <traceback object at 0x0000028FEF8931C0>) Internal Server Error: /admin/news/category/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\options.py", line 681, in get_field
+    return self.fields_map[field_name]
+KeyError: 'action_checkbox'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 289, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 322, in _get_non_gfk_field
+    field = opts.get_field(name)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\options.py", line 683, in get_field
+    raise FieldDoesNotExist(
+django.core.exceptions.FieldDoesNotExist: Category has no field named 'action_checkbox'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\library.py", line 258, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 345, in result_list
+    "results": list(results(cl)),
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 321, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 312, in __init__
+    super().__init__(*items)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 217, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\utils.py", line 298, in lookup_field
+    value = attr(obj)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\admin\options.py", line 999, in action_checkbox
+    "aria-label": format_html(_("Select this object for an action - {}"), obj),
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 135, in format_html
+    return mark_safe(format_string.format(*args_safe, **kwargs_safe))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 117, in conditional_escape
+    return escape(text)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\functional.py", line 231, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\html.py", line 50, in escape
+    return SafeString(html.escape(str(text)))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Ёкономика'
+2024-08-04 09:55:12,654 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /admin/news/category/ HTTP/1.1" 500 466071
+2024-08-04 09:57:17,374 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Sciense'), <traceback object at 0x0000028FEF81CD40>) Internal Server Error: /News/1
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Sciense'
+2024-08-04 09:57:17,388 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/1 HTTP/1.1" 500 169844
+2024-08-04 09:57:54,098 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Sciense'), <traceback object at 0x0000028FEFB12780>) Internal Server Error: /News/1
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Sciense'
+2024-08-04 09:57:54,113 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/1 HTTP/1.1" 500 169706
+2024-08-04 09:57:56,231 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Sciense'), <traceback object at 0x0000028FEFD6AAC0>) Internal Server Error: /News/2
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Sciense'
+2024-08-04 09:57:56,243 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/2 HTTP/1.1" 500 169706
+2024-08-04 09:57:58,130 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Other'), <traceback object at 0x0000028FEF8F3300>) Internal Server Error: /News/7
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Other'
+2024-08-04 09:57:58,145 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/7 HTTP/1.1" 500 169645
+2024-08-04 09:59:00,351 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'KeyError'>, KeyError('Cooking'), <traceback object at 0x0000028FEFB85940>) Internal Server Error: /News/search/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 87, in as_p
+    return self.render(self.template_name_p)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 55, in render
+    return mark_safe(renderer.render(template, context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\renderers.py", line 29, in render
+    return template.render(context, request=request).strip()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\boundfield.py", line 108, in as_widget
+    return widget.render(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 278, in render
+    context = self.get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 764, in get_context
+    context = super().get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 715, in get_context
+    context["widget"]["optgroups"] = self.optgroups(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 655, in optgroups
+    for index, (option_value, option_label) in enumerate(self.choices):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django_filters\fields.py", line 256, in __iter__
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 1423, in __iter__
+    yield self.choice(obj)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 1437, in choice
+    self.field.label_from_instance(obj),
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 1523, in label_from_instance
+    return str(obj)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\models.py", line 33, in __str__
+    return dict(self.CATEGORY)[self.name]
+KeyError: 'Cooking'
+2024-08-04 09:59:00,404 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/search/ HTTP/1.1" 500 321770
+2024-08-04 10:19:01,957 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x00000188ED90B3C0>) Internal Server Error: /News/search/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 87, in as_p
+    return self.render(self.template_name_p)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 55, in render
+    return mark_safe(renderer.render(template, context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\renderers.py", line 29, in render
+    return template.render(context, request=request).strip()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\boundfield.py", line 108, in as_widget
+    return widget.render(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 278, in render
+    context = self.get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 764, in get_context
+    context = super().get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 715, in get_context
+    context["widget"]["optgroups"] = self.optgroups(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 655, in optgroups
+    for index, (option_value, option_label) in enumerate(self.choices):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django_filters\fields.py", line 256, in __iter__
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 1422, in __iter__
+    for obj in queryset:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 518, in _iterator
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2024-08-04 10:19:01,995 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/search/ HTTP/1.1" 500 364965
+2024-08-04 10:19:08,866 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x00000188ED7EEEC0>) Internal Server Error: /News/search/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 87, in as_p
+    return self.render(self.template_name_p)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 55, in render
+    return mark_safe(renderer.render(template, context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\renderers.py", line 29, in render
+    return template.render(context, request=request).strip()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\boundfield.py", line 108, in as_widget
+    return widget.render(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 278, in render
+    context = self.get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 764, in get_context
+    context = super().get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 715, in get_context
+    context["widget"]["optgroups"] = self.optgroups(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 655, in optgroups
+    for index, (option_value, option_label) in enumerate(self.choices):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django_filters\fields.py", line 256, in __iter__
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 1422, in __iter__
+    for obj in queryset:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 518, in _iterator
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2024-08-04 10:19:08,899 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/search/ HTTP/1.1" 500 353628
+2024-08-04 10:19:17,163 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x00000188EED48D80>) Internal Server Error: /News/search/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 87, in as_p
+    return self.render(self.template_name_p)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 55, in render
+    return mark_safe(renderer.render(template, context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\renderers.py", line 29, in render
+    return template.render(context, request=request).strip()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\boundfield.py", line 108, in as_widget
+    return widget.render(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 278, in render
+    context = self.get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 764, in get_context
+    context = super().get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 715, in get_context
+    context["widget"]["optgroups"] = self.optgroups(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 655, in optgroups
+    for index, (option_value, option_label) in enumerate(self.choices):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django_filters\fields.py", line 256, in __iter__
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 1422, in __iter__
+    for obj in queryset:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 518, in _iterator
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2024-08-04 10:19:17,190 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/search/ HTTP/1.1" 500 365306
+2024-08-04 10:19:48,556 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x00000122F90C1F80>) Internal Server Error: /News/1
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\detail.py", line 109, in get
+    context = self.get_context_data(object=self.object)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\NewsPaper\news\views.py", line 48, in get_context_data
+    for category in self.object.category.all():
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2024-08-04 10:19:48,574 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/1 HTTP/1.1" 500 147723
+2024-08-04 10:20:27,240 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_category.name_ru'), <traceback object at 0x00000122F93F5140>) Internal Server Error: /News/search/
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_category.name_ru
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 710, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 909, in _resolve_lookup
+    current = current()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 87, in as_p
+    return self.render(self.template_name_p)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 55, in render
+    return mark_safe(renderer.render(template, context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\renderers.py", line 29, in render
+    return template.render(context, request=request).strip()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1065, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\template\base.py", line 1042, in render_value_in_context
+    value = str(value)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\utils.py", line 79, in __str__
+    return self.as_widget()
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\boundfield.py", line 108, in as_widget
+    return widget.render(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 278, in render
+    context = self.get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 764, in get_context
+    context = super().get_context(name, value, attrs)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 715, in get_context
+    context["widget"]["optgroups"] = self.optgroups(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\widgets.py", line 655, in optgroups
+    for index, (option_value, option_label) in enumerate(self.choices):
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django_filters\fields.py", line 256, in __iter__
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\forms\models.py", line 1422, in __iter__
+    for obj in queryset:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 518, in _iterator
+    yield from iterable
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_category.name_ru
+2024-08-04 10:20:27,544 ERROR C:\Users\marmelad\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py None "GET /News/search/ HTTP/1.1" 500 365306

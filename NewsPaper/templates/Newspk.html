@@ -1,6 +1,7 @@
 {% extends 'flatpages/default.html' %}
 {% load censor_filter %}
 {% load i18n %}
+{% load custom_tags %}
 {% block title %}
 Post
 {% endblock title %}
@@ -23,7 +24,7 @@ Post
     {% for category in categories %}
         {% if not category.is_subscribed %}
             <div style="text-align: left;">
-                <button><a href="{% url 'subscribe_to_category' category.category.id %}">{% trans 'Подпишитесь на категорию' %} "{{ category.category }}"</a></button>
+                <button><a href="{% url 'subscribe_to_category' category.category.id %}">{% trans 'Подпишитесь на категорию' %} "{{ category.category|translate_category }}"</a></button>
             </div>
         {% else %}
             <span style="font-size: 0.8em; color: #666; display: block; float: left;">{% trans 'Вы уже подписаны на категорию' %}: "{{ category.category }}"</span>

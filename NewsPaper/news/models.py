@@ -28,9 +28,11 @@ class Category(models.Model):
                             unique=True,
                             choices=CATEGORY,
                             default=Other)
+    title = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return dict(self.CATEGORY)[self.name]
+        # return dict(self.CATEGORY)[self.name]
+        return self.title
 
     def get_subscribers(self):
         return self.subscribers.all()
