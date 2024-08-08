@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+{% block content %}
+  <h1>Мой профиль</h1>
+  <p>Имя: {{ request.user.username }}</p>
+  <p>Email: {{ request.user.email }}</p>
+    <p>Рейтинг: {{user.author.rating}}</p>
+  <p>Дата регистрации: {{request.user.date_joined|date:"d.m.Y"}}</p>
+
+  <h2>Мои новости</h2>
+  {% if user_post %}
+    {% for post in user_post|dictsort:"date_created" %}
+          <tr>
+              <td><a href="{% url 'post_detail' post.pk %}">{{post.header}}</a></td>
+              <td> {{post.date_created|date:"d.m.Y"}}</td>
+              <td>
+                <a href="{% url 'EditNews' post.pk %}" class="btn btn-primary btn-sm">{% trans "Изменить" %}</a>
+                <a href="{% url 'DeleteNews' post.pk %}" class="btn btn-danger btn-sm">{% trans "Удалить" %}</a>
+              </td>
+          </tr>
+          <tr><td colspan="3"><hr></td></tr>
+    {% endfor %}
+  {% else %}
+    <p>{% trans 'Новостей пока нет' %}</p>
+  {% endif %}
+
+<a href="{% url 'account_logout' %}">Выйти</a>
+
+{% endblock %}

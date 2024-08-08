@@ -10,7 +10,7 @@ Post
 
 {{post.header| check_bad_words}}
 
-
+<h5 style="text-align: left;"> Автор:{{post.author}}</h5>
 <h5 style="text-align: left;"> {% trans 'Категории' %}:
     {% for category in post.category.all %}
         {{ category }}{% if not forloop.last %}, {% endif %}

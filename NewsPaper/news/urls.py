@@ -21,7 +21,4 @@ urlpatterns = [
     path('<int:pk>/dislike_post', views.dislike_post, name='dislike_post'),
     path('<int:pk>/like_comment', views.like_comment, name='like_comment'),
     path('<int:pk>/dislike_comment', views.dislike_comment, name='dislike_comment'),
-
-
-
 ]

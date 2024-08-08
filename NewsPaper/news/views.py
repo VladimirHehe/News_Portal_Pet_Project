@@ -105,7 +105,7 @@ class NewsUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
 class NewsDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete_news.html'
-    success_url = reverse_lazy('post_list')
+    success_url = reverse_lazy('user_profile')
     permission_required = 'news.delete_post'
 
 
@@ -131,7 +131,7 @@ class ArticleEdit(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
 class ArticleDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete_article.html'
-    success_url = reverse_lazy('post_list')
+    success_url = reverse_lazy('user_profile')
     permission_required = 'news.delete_post'
 
 
@@ -147,10 +147,10 @@ def upgrade_me(request):
 
 def subscribe_to_category(request, category_id):
     category = Category.objects.get(id=category_id)
+    current_url = request.META.get('HTTP_REFERER')
     if request.method == 'GET':
         if not Subscription.objects.filter(user=request.user, category=category).exists():
             Subscription.objects.create(user=request.user, category=category)
-            current_url = request.META.get('HTTP_REFERER')
             return redirect(current_url)
     return redirect(current_url)
 
@@ -166,6 +166,7 @@ def comment_form_view(request, pk):
     return render(request, 'comment_form.html', {'post': post})
 
 
+@login_required
 def like_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
@@ -175,6 +176,7 @@ def like_post(request, pk):
     return redirect('post_detail', pk=pk)
 
 
+@login_required
 def dislike_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
@@ -184,23 +186,23 @@ def dislike_post(request, pk):
     return redirect('post_detail', pk=pk)
 
 
+@login_required
 def like_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
+    current_url = request.META.get('HTTP_REFERER')
     if request.method == 'POST':
         comment.rating += 1
         comment.save()
-        current_url = request.META.get('HTTP_REFERER')
         return redirect(current_url)
     return redirect(current_url)
 
 
+@login_required
 def dislike_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
+    current_url = request.META.get('HTTP_REFERER')
     if request.method == 'POST':
         comment.rating -= 1
         comment.save()
-        current_url = request.META.get('HTTP_REFERER')
         return redirect(current_url)
     return redirect(current_url)
-
-

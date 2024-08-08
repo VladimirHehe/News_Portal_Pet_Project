@@ -44,6 +44,7 @@
                                 <a class="nav-link" style="text-align:right;" href="/News/create/">{% trans "Создать новость" %}</a>
                             </li>
                             {% endif %}
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {% trans "Язык" %}
@@ -62,6 +63,11 @@
                                     </form>
                                 </div>
                             </li>
+                            {%if not is_not_author%}
+                            <li class="nav-item">
+                                <a class="nav-link" style="float: right;" href="/account/profile">Мой профиль</a>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
